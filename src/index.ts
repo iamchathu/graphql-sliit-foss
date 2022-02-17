@@ -34,18 +34,20 @@ const setupServer = async () => {
     ],
   });
 
-  app.use(
-    helmet({
-      contentSecurityPolicy:
-        process.env.NODE_DEV === 'production' ? undefined : false,
-    }),
-  );
-
   await server.start();
   server.applyMiddleware({
     app,
     path: '/graphql',
   });
+
+  app.use(
+    helmet({
+      contentSecurityPolicy:
+        process.env.NODE_DEV === 'production' ? undefined : false,
+      crossOriginEmbedderPolicy:
+        process.env.NODE_DEV === 'production' ? undefined : false,
+    }),
+  );
 
   app.listen({ port: config.app.port }, () => {
     console.log(`🚀  Server ready at ${config.app.port}`);
