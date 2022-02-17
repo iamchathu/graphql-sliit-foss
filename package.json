@@ -1,0 +1,28 @@
+{
+  "name": "graphql-sliit-foss",
+  "version": "1.0.0",
+  "description": "GraphQL Server setup for SLIIT FOSS Session",
+  "main": "dist/index.js",
+  "author": "Chathu Vishwajith <iam@chathu.me>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc -b .",
+    "dev": "tsnd --deps --clear --rs --respawn --transpile-only src/index.ts"
+  },
+  "dependencies": {
+    "apollo-server-core": "^3.6.3",
+    "apollo-server-express": "^3.6.3",
+    "class-validator": "^0.13.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "graphql": "^15.3.0",
+    "helmet": "^5.0.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  }
+}
